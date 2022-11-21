@@ -6,16 +6,17 @@ import random
 aleatorio=random.randint(1000,9999)
 
 def numero_usuario():
-        entrada=False #Establevemos una variable para el while.
+        entrada=False #Establevemos una variable para el while. 
+        # lpaneque: Este comentario no aporta nada, se ve en la siguiente línea. Quizás otro nombre para la variable sería más claro. terminar por ejemplo.
 
-        while entrada==False: #El bucle no parara hasta que la variable no este a true.
+        while entrada==False: #El bucle no parara hasta que la variable no este a true. #lpaneque: Mejor while not entrada
 
             numero=(input("Introduce un numero de 4 digitos: ")) #El usuario introducira un numero y seguardara en una variable.
-
-            if numero.isdigit(): #Comprovamos si el usuario a introducido solamente numeros.
+# lpaneque Comprovamos? Con v?
+            if numero.isdigit(): #Comprovamos si el usuario a introducido solamente numeros. 
 
                 numero=int(numero) #Transformamos el dato introducido a enteros, de esta forma podremos manejarlo mejor.
-
+                # lpaneque: Esto no es correcto. El número no puede ser al mismo tiempo menor que 1000 y mayor que 9999, es imposible!! Debes utilizar or
                 if numero<1000 and numero>9999: #Verificamos si el valo ingresado es una cifra de 4 digitos.
 
                     print("El valor introducido no es valido, por favor introduzca un valor de 4 digitos.")
@@ -31,6 +32,7 @@ def numero_usuario():
         return numero #Devolvemos el valor aceptable.
 
 intentos=0 #establecemos el numero de intentos en 0, luego le iremos sumando valores para indicar el numero de intentos.
+# lpaneque: Comentario obvio
 bucle=False#Establevemos una variable para el while.
 
 while bucle==False:
@@ -46,7 +48,10 @@ while bucle==False:
     #Extraemos el primer digito de cada numero para compararlos.
     A=aleatorio//1000
     A2=num_user//1000
-
+    
+    # lpaneque: Veo cierta influcencia del código José Daniel en tu código. 
+    #  Me da la sensación de que si te pregunto qué hace el código no lo vas a tener claro.
+    # No es necesario que hagas todas estas operaciones matemáticas. Con ir comparando dígito a dígito es suficiente.
     if (A-A2)==0:
 
         print("-----------------------------------------")
