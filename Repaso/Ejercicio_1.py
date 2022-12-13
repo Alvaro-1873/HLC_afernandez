@@ -1,4 +1,3 @@
-#!/bin/bash
 #Alvaro Fernandez Payo
 #08-12-2022
 
