@@ -21,7 +21,7 @@ def anagrama(palabra1, palabra2):
     #print(lista1)
     #print(lista2)
 
-    palabra1_ordenada = "".join(lista1)
+    palabra1_ordenada = "".join(lista1) # lpaneque: Pero esto para qué? si puedes convertir una lista a string str(lista)
     palabra2_ordenada = "".join(lista2)
 
     #print(palabra1_ordenada)
