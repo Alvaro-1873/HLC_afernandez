@@ -8,6 +8,9 @@ class producto:
     self.precio = precio
     self.descripcion = descripcion
 
+    def __str__(self):
+        return f"Nombre: {self.nombre}, Codigo: {self.codigo}, Precio: {self.precio}"
+
 class libros(producto):
     def __init__(self, nombre, codigo, precio, descripcion, genero, autor, ISBN):
         super().__init__(nombre, codigo, precio, descripcion)
