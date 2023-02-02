@@ -1,11 +1,16 @@
 #Alvaro Fernandez Payo
 #19-01-2023
 
-from Pagos import Bizum
+from Pagos import Tarjeta_debito, Bizum, Tarjeta_credito, PayPal
+
+tarjetadebi_1=Tarjeta_debito("Paco",1234567890,"10/26",123,10000)
+tarjetadebi_2=Tarjeta_debito("Juan",1234567890,"10/26",123,10000)
+tarjetadebi_3=Tarjeta_debito("Manolo",1234567890,"10/26",123,10000)
+tarjetadebi_4=Tarjeta_debito("Raul",1234567890,"10/26",123,10000)
 
 class ShoppingCart:
     def __init__(self):
-        self.cliente = cliente
+        self.cliente = cliente #type: ignore
         self.objetos = []
 
     def add_objeto(self, objeto):
@@ -25,12 +30,13 @@ class ShoppingCart:
         if metodo == "bizum":
             Bizum.pagar(25)
         elif metodo == "Tarjeta_debito":
-            pass
+            Tarjeta_debito.activar()
+            Tarjeta_debito.pagar(25)
         elif metodo == "Tarjeta_credito":
-            pass
+            Tarjeta_credito.pagar(25)
         elif metodo == "paypal":
-            pass
+            PayPal.pagar(25)
         else:
             raise ValueError("Metodo de pago invalido")
 
-ShoppingCart.checkout("bizum")
+#ShoppingCart.checkout("Tarjeta_debito")

@@ -2,33 +2,33 @@
 #19-01-2023
 
 class Tarjeta_debito:
-    def __init__(self, nombre, numero_tarjeta, fecha_de_caducidad, cvv, activa, saldo):
+    def __init__(self, nombre, numero_tarjeta, fecha_de_caducidad, cvv, saldo=0):
         self.nombre = nombre
         self.numero_tarjeta = numero_tarjeta
         self.fecha_de_caducidad = fecha_de_caducidad
         self.cvv = cvv
         self.activa = False
-        self.saldo = 0
+        self.saldo = saldo
 
-        def activar(self):
-            if not self.activa:
-                self.activa = True
-                print(f"Activando la tarjeta con número {self.numero}")
-            else:
-                print(f"La tarjeta con con número {self.numero} ya estaba activada")
-    
-        def pagar(self, cantidad):
-            if self.activa:
-                print(f"Pagando {cantidad} con la tarjeta {self.numero}...")
-            else:
-                print(f"ERROR al pagar con la tarjeta {self.numero}. TARJETA INACTIVA")
+    def activar(self):
+        if not self.activa:
+            self.activa = True
+            print(f"Activando la tarjeta")
+        else:
+            print(f"La tarjeta con con número {self.numero} ya estaba activada")
 
-        def anular(self):
-            if self.activa:
-                print(f"Anulando la tarjeta {self.numero}")
-                self.activa = False
-            else:
-                print(f"La tarjeta {self.numero} ya estaba desactivada.")
+    def pagar(self, cantidad):
+        if self.activa:
+            print(f"Pagando {cantidad}")
+        else:
+            print(f"ERROR al pagar con la tarjeta {self.numero}. TARJETA INACTIVA")
+
+    def anular(self):
+        if self.activa:
+            print(f"Anulando la tarjeta {self.numero}")
+            self.activa = False
+        else:
+            print(f"La tarjeta {self.numero} ya estaba desactivada.")
 
 class Tarjeta_credito(Tarjeta_debito):
     def __init__(self, nombre, numero_tarjeta, fecha_de_caducidad, cvv, activa, saldo, credito):
@@ -43,7 +43,7 @@ class Bizum:
         print(f"Pagando {cantidad}")
 
 class PayPal:
-    def __init__(self, nombre, email, password):
+    def __init__(self, nombre, correo, contraseña):
         self.nombre = nombre
         self.correo = correo
         self.contraseña = contraseña
