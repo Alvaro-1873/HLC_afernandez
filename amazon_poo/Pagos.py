@@ -31,21 +31,23 @@ class Tarjeta_debito:
             print(f"La tarjeta {self.numero} ya estaba desactivada.")
 
 class Tarjeta_credito(Tarjeta_debito):
-    def __init__(self, nombre, numero_tarjeta, fecha_de_caducidad, cvv, activa, saldo, credito):
-        super().__init__(nombre, numero_tarjeta, fecha_de_caducidad, cvv, activa, saldo)
-        self.credito = 1000
+    def __init__(self, nombre, numero_tarjeta, fecha_de_caducidad, cvv, saldo, credito):
+        super().__init__(nombre, numero_tarjeta, fecha_de_caducidad, cvv, saldo)
+        self.credito = 0
 
 class Bizum:
-    def __init__(self, nombre, numero_telefono):
+    def __init__(self, nombre, numero_telefono, saldo=0):
         self.nombre = nombre
         self.numero_telefono = numero_telefono
+        self.saldo = saldo
     def pagar(cantidad):
         print(f"Pagando {cantidad}")
 
 class PayPal:
-    def __init__(self, nombre, correo, contraseña):
+    def __init__(self, nombre, correo, contraseña, saldo):
         self.nombre = nombre
         self.correo = correo
         self.contraseña = contraseña
+        self.saldo = 0
     def pagar(self, cantidad):
         print(f"Pagando {cantidad} con usuario {self.nombre} con correo {self.correo}...")

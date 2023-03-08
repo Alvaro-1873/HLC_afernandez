@@ -3,14 +3,9 @@
 
 from Pagos import Tarjeta_debito, Bizum, Tarjeta_credito, PayPal
 
-tarjetadebi_1=Tarjeta_debito("Paco",1234567890,"10/26",123,10000)
-tarjetadebi_2=Tarjeta_debito("Juan",1234567890,"10/26",123,10000)
-tarjetadebi_3=Tarjeta_debito("Manolo",1234567890,"10/26",123,10000)
-tarjetadebi_4=Tarjeta_debito("Raul",1234567890,"10/26",123,10000)
-
 class ShoppingCart:
     def __init__(self):
-        self.cliente = cliente #type: ignore
+        #self.cliente = cliente #type: ignore
         self.objetos = []
 
     def add_objeto(self, objeto):
@@ -24,9 +19,10 @@ class ShoppingCart:
         for objeto in self.objetos:
             total += objeto.precio
         return total
-    
+ 
+"""
     def checkout(metodo):
-        #total = self.get_total() + coste_envio
+        total = self.get_total()
         if metodo == "bizum":
             Bizum.pagar(25)
         elif metodo == "Tarjeta_debito":
@@ -38,5 +34,4 @@ class ShoppingCart:
             PayPal.pagar(25)
         else:
             raise ValueError("Metodo de pago invalido")
-
-#ShoppingCart.checkout("Tarjeta_debito")
+"""

@@ -3,10 +3,10 @@
 
 class producto:
     def __init__(self, nombre, codigo, precio, descripcion):
-    self.nombre = nombre
-    self.codigo = codigo
-    self.precio = precio
-    self.descripcion = descripcion
+        self.nombre = nombre
+        self.codigo = codigo
+        self.precio = precio
+        self.descripcion = descripcion
 
     def __str__(self):
         return f"Nombre: {self.nombre}, Codigo: {self.codigo}, Precio: {self.precio}"
