@@ -13,7 +13,7 @@ tarjetadebi_3=Tarjeta_debito("Manolo",1234567890,"10/26",123,10000)
 tarjetadebi_4=Tarjeta_debito("Raul",1234567890,"10/26",123,10000)
 
 #-------------------------- Targeta de credito------------------------
-targetacredito_1=Tarjeta_credito("Paco",1234567890,"10/26",123,10000,1000)
+targetacredito_1=Tarjeta_credito("Pepe",1234567890,"10/26",123,10000,1000)
 targetacredito_2=Tarjeta_credito("Juan",1234567890,"10/26",123,10000,1000)
 targetacredito_3=Tarjeta_credito("Manolo",1234567890,"10/26",123,10000,1000)
 targetacredito_4=Tarjeta_credito("Raul",1234567890,"10/26",123,10000,1000)
@@ -64,27 +64,13 @@ opciones_targetacredi = ["targetacredito_1","targetacredito_2","targetacredito_3
 opciones_bizum = ["bizum_1","bizum_2","bizum_3","bizum_4"]
 opciones_paypal = ["paypal_1","paypal_2","paypal_3","paypal_4"]
 Productos= ["Libros","Muebles","Ropa","Videojuegos"]
-productos_libros = ["libro1","libro2","libro3"]
+productos_libros = ["libro_1","libro_2","libro_3"]
 productos_muebles = ["mueble_1","mueble_2","mueble_3"]
 productos_ropa = ["ropa_1","ropa_2","ropa_3"]
 productos_videojuegos = ["videojuegos_1","videojuegos_2","videojuegos_3"]
 
 #----------------------------------------------------------------------
-#------------------------------- Carrito ------------------------------
-#----------------------------------------------------------------------
-
-mi_carrito=ShoppingCart()
-mi_carrito.add_objeto(videojuegos_1)
-mi_carrito.add_objeto(videojuegos_2)
-mi_carrito.add_objeto(videojuegos_3)
-total=mi_carrito.get_total()
-
-print(total)
-
-
-"""
-#----------------------------------------------------------------------
-#--------------------------------- Menus ------------------------------
+#------------------------- Menus metodos de pago ----------------------
 #----------------------------------------------------------------------
 
 #---------------------------- menu_targetadebi -----------------------
@@ -98,24 +84,16 @@ def menu_targetacredi():
             print(f"{i+1}. {opciones_targetacredi[i]}")
         eleccion = int(input("Selecciona una opcion: "))
         if eleccion == 1:
-            targetacredito_1.activar()
-            targetacredito_1.pagar(50)
-            print("Has pagado con la targeta de: ", targetacredito_1.nombre ,"tu saldo ahora es de:", targetacredito_1.saldo,"€")
+            mi_carrito.pagotarjeta(targetacredito_1)
             salir=True
         elif eleccion == 2:
-            targetacredito_2.activar()
-            targetacredito_2.pagar(50)
-            print("Has pagado con la targeta de: ", targetacredito_2.nombre ,"tu saldo ahora es de:", targetacredito_2.saldo,"€")
+            mi_carrito.pagotarjeta(targetacredito_2)
             salir=True
         elif eleccion == 3:
-            targetacredito_3.activar()
-            targetacredito_3.pagar(50)
-            print("Has pagado con la targeta de: ", targetacredito_3.nombre ,"tu saldo ahora es de:", targetacredito_3.saldo,"€")
+            mi_carrito.pagotarjeta(targetacredito_3)
             salir=True
         elif eleccion == 4:
-            targetacredito_4.activar()
-            targetacredito_4.pagar(50)
-            print("Has pagado con la targeta de: ", targetacredito_4.nombre ,"tu saldo ahora es de:", targetacredito_4.saldo,"€")
+            mi_carrito.pagotarjeta(targetacredito_4)
             salir=True
         else:
             print("---------------------")
@@ -133,24 +111,16 @@ def menu_targetadebi():
             print(f"{i+1}. {opciones_targetadebi[i]}")
         eleccion = int(input("Selecciona una opcion: "))
         if eleccion == 1:
-            tarjetadebi_1.activar()
-            tarjetadebi_1.pagar(50)
-            print("Has pagado con la targeta de: ", tarjetadebi_1.nombre ,"tu saldo ahora es de:", tarjetadebi_1.saldo,"€")
+            mi_carrito.pagotarjeta(tarjetadebi_1)
             salir=True
         elif eleccion == 2:
-            tarjetadebi_2.activar()
-            tarjetadebi_2.pagar(50)
-            print("Has pagado con la targeta de: ", tarjetadebi_2.nombre ,"tu saldo ahora es de:", tarjetadebi_2.saldo,"€")
+            mi_carrito.pagotarjeta(tarjetadebi_2)
             salir=True
         elif eleccion == 3:
-            tarjetadebi_3.activar()
-            tarjetadebi_3.pagar(50)
-            print("Has pagado con la targeta de: ", tarjetadebi_3.nombre ,"tu saldo ahora es de:", tarjetadebi_3.saldo,"€")
+            mi_carrito.pagotarjeta(tarjetadebi_3)
             salir=True
         elif eleccion == 4:
-            tarjetadebi_4.activar()
-            tarjetadebi_4.pagar(50)
-            print("Has pagado con la targeta de: ", tarjetadebi_4.nombre ,"tu saldo ahora es de:", tarjetadebi_4.saldo,"€")
+            mi_carrito.pagotarjeta(tarjetadebi_4)
             salir=True
         else:
             print("---------------------")
@@ -168,16 +138,16 @@ def menu_bizum():
             print(f"{i+1}. {opciones_bizum[i]}")
         eleccion = int(input("Selecciona una opcion: "))
         if eleccion == 1:
-            print("Has pagado con numero:",bizum_1.numero_telefono,"ha nombre de:",bizum_1.nombre,"tu saldo ahora es de:",bizum_1.saldo,"€")
+            mi_carrito.pagobizum(bizum_1)
             salir=True
         elif eleccion == 2:
-            print("Has pagado con numero:",bizum_2.numero_telefono,"ha nombre de:",bizum_2.nombre,"tu saldo ahora es de:",bizum_2.saldo,"€")
+            mi_carrito.pagobizum(bizum_2)
             salir=True
         elif eleccion == 3:
-            print("Has pagado con numero:",bizum_3.numero_telefono,"ha nombre de:",bizum_3.nombre,"tu saldo ahora es de:",bizum_3.saldo,"€")
+            mi_carrito.pagobizum(bizum_3)
             salir=True
         elif eleccion == 4:
-            print("Has pagado con numero:",bizum_4.numero_telefono,"ha nombre de:",bizum_4.nombre,"tu saldo ahora es de:",bizum_4.saldo,"€")
+            mi_carrito.pagobizum(bizum_4)
             salir=True
         else:
             print("---------------------")
@@ -195,16 +165,16 @@ def menu_paypal():
             print(f"{i+1}. {opciones_paypal[i]}")
         eleccion = int(input("Selecciona una opcion: "))
         if eleccion == 1:
-            print("Has pagado con numero:",bizum_1.numero_telefono,"ha nombre de:",bizum_1.nombre,"tu saldo ahora es de:",bizum_1.saldo,"€")
+            mi_carrito.pagopaypal(paypal_1)
             salir=True
         elif eleccion == 2:
-            print("Has pagado con numero:",bizum_2.numero_telefono,"ha nombre de:",bizum_2.nombre,"tu saldo ahora es de:",bizum_2.saldo,"€")
+            mi_carrito.pagopaypal(paypal_2)
             salir=True
         elif eleccion == 3:
-            print("Has pagado con numero:",bizum_3.numero_telefono,"ha nombre de:",bizum_3.nombre,"tu saldo ahora es de:",bizum_3.saldo,"€")
+            mi_carrito.pagopaypal(paypal_3)
             salir=True
         elif eleccion == 4:
-            print("Has pagado con numero:",bizum_4.numero_telefono,"ha nombre de:",bizum_4.nombre,"tu saldo ahora es de:",bizum_4.saldo,"€")
+            mi_carrito.pagopaypal(paypal_4)
             salir=True
         else:
             print("---------------------")
@@ -232,34 +202,39 @@ def menu_metodos_pagos():
             menu_bizum()
         elif eleccion == 4:
             salir=True
-            return PayPal
+            menu_paypal()
         else:
             print("---------------------")
             print("| Opcion incorrecta |")
             print("---------------------")
 
-#------------------------------- menu_Libros ---------------------------
+#----------------------------------------------------------------------
+#----------------------------- Menus Productos ------------------------
+#----------------------------------------------------------------------
+
+#------------------------------- menu_Libros --------------------------
 def menu_productos_libros():
     salir=False
     while salir == False:
-        print("--------------------")
-        print("| Metodos de pagos |")
-        print("--------------------")
+        print("----------")
+        print("| Libros |")
+        print("----------")
         for i in range(len(productos_libros)):
             print(f"{i+1}. {productos_libros[i]}")
+        print("4. Salir")
         eleccion = int(input("Selecciona una opcion: "))
         if eleccion == 1:
-            salir=True
-            
+            mi_carrito.add_objeto(libro1)
+            print("Añadido libro 1")
         elif eleccion == 2:
-            salir=True
-            
+            mi_carrito.add_objeto(libro2)
+            print("Añadido libro 2")
         elif eleccion == 3:
-            salir=True
-            
+            mi_carrito.add_objeto(libro3)
+            print("Añadido libro 3")
         elif eleccion == 4:
             salir=True
-            return PayPal
+            menu_productos()
         else:
             print("---------------------")
             print("| Opcion incorrecta |")
@@ -269,24 +244,25 @@ def menu_productos_libros():
 def menu_productos_muebles():
     salir=False
     while salir == False:
-        print("--------------------")
-        print("| Metodos de pagos |")
-        print("--------------------")
+        print("-----------")
+        print("| Muebles |")
+        print("-----------")
         for i in range(len(productos_muebles)):
             print(f"{i+1}. {productos_muebles[i]}")
+        print("4. Salir")
         eleccion = int(input("Selecciona una opcion: "))
         if eleccion == 1:
-            salir=True
-            
+            mi_carrito.add_objeto(mueble_1)
+            print("Añadido mueble 1")
         elif eleccion == 2:
-            salir=True
-            
+            mi_carrito.add_objeto(mueble_2)
+            print("Añadido mueble 2")
         elif eleccion == 3:
-            salir=True
-            
+            mi_carrito.add_objeto(mueble_3)
+            print("Añadido mueble 3")
         elif eleccion == 4:
             salir=True
-            return PayPal
+            menu_productos()
         else:
             print("---------------------")
             print("| Opcion incorrecta |")
@@ -296,24 +272,25 @@ def menu_productos_muebles():
 def menu_productos_ropa():
     salir=False
     while salir == False:
-        print("--------------------")
-        print("| Metodos de pagos |")
-        print("--------------------")
+        print("--------")
+        print("| Ropa |")
+        print("--------")
         for i in range(len(productos_ropa)):
             print(f"{i+1}. {productos_ropa[i]}")
+        print("4. Salir")
         eleccion = int(input("Selecciona una opcion: "))
         if eleccion == 1:
-            salir=True
-            
+            mi_carrito.add_objeto(ropa_1)
+            print("Añadido ropa 1")
         elif eleccion == 2:
-            salir=True
-            
+            mi_carrito.add_objeto(ropa_2)
+            print("Añadido ropa 2")
         elif eleccion == 3:
-            salir=True
-            
+            mi_carrito.add_objeto(ropa_3)
+            print("Añadido ropa 3")
         elif eleccion == 4:
             salir=True
-            return PayPal
+            menu_productos()
         else:
             print("---------------------")
             print("| Opcion incorrecta |")
@@ -323,24 +300,25 @@ def menu_productos_ropa():
 def menu_productos_videojuegos():
     salir=False
     while salir == False:
-        print("--------------------")
-        print("| Metodos de pagos |")
-        print("--------------------")
+        print("---------------")
+        print("| Videojuegos |")
+        print("---------------")
         for i in range(len(productos_videojuegos)):
             print(f"{i+1}. {productos_libros[i]}")
+        print("4. Salir")
         eleccion = int(input("Selecciona una opcion: "))
         if eleccion == 1:
-            salir=True
-            
+            mi_carrito.add_objeto(videojuegos_1)
+            print("Añadido videojuegos 1")
         elif eleccion == 2:
-            salir=True
-            
+            mi_carrito.add_objeto(videojuegos_2)
+            print("Añadido videojuegos 2")
         elif eleccion == 3:
-            salir=True
-            
+            mi_carrito.add_objeto(videojuegos_3)
+            print("Añadido videojuegos 3")
         elif eleccion == 4:
             salir=True
-            return PayPal
+            menu_productos()
         else:
             print("---------------------")
             print("| Opcion incorrecta |")
@@ -356,22 +334,31 @@ def menu_productos():
         print("--------------------")
         for i in range(len(Productos)):
             print(f"{i+1}. {Productos[i]}")
+        print("5. Tramitar")
+        print("6. Salir")
+
         eleccion = int(input("Selecciona una opcion: "))
         if eleccion == 1:
             salir=True
-            
+            menu_productos_libros()
         elif eleccion == 2:
             salir=True
-            
+            menu_productos_muebles()
         elif eleccion == 3:
             salir=True
-            
+            menu_productos_ropa()
         elif eleccion == 4:
             salir=True
-            return PayPal
+            menu_productos_videojuegos()
+        elif eleccion == 5:
+            salir=True
+            menu_metodos_pagos()
+        elif eleccion == 6:
+            salir=True
         else:
             print("---------------------")
             print("| Opcion incorrecta |")
             print("---------------------")
 
-"""
+mi_carrito=ShoppingCart("alvaro")
+menu_productos()

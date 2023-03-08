@@ -20,6 +20,8 @@ class Tarjeta_debito:
     def pagar(self, cantidad):
         if self.activa:
             print(f"Pagando {cantidad}")
+            self.saldo-=cantidad
+            print(f"Su saldo es de {self.saldo}")
         else:
             print(f"ERROR al pagar con la tarjeta {self.numero}. TARJETA INACTIVA")
 
@@ -40,14 +42,20 @@ class Bizum:
         self.nombre = nombre
         self.numero_telefono = numero_telefono
         self.saldo = saldo
-    def pagar(cantidad):
+
+    def pagar(self, cantidad):
         print(f"Pagando {cantidad}")
+        self.saldo-=cantidad
+        print(f"Su saldo es de {self.saldo}")
 
 class PayPal:
-    def __init__(self, nombre, correo, contraseña, saldo):
+    def __init__(self, nombre, correo, contraseña, saldo=0):
         self.nombre = nombre
         self.correo = correo
         self.contraseña = contraseña
-        self.saldo = 0
+        self.saldo = saldo
+
     def pagar(self, cantidad):
         print(f"Pagando {cantidad} con usuario {self.nombre} con correo {self.correo}...")
+        self.saldo-=cantidad
+        print(f"Su saldo es de {self.saldo}")
